@@ -28,6 +28,7 @@ type QueryRsp struct {
 	NonceStr          string `json:"nonceStr"`
 }
 
+// 支付结果查询
 func (c *Client) Query(q *Query) (rsp *QueryRsp, err error) {
 	rsp = new(QueryRsp)
 
@@ -41,7 +42,7 @@ func (c *Client) Query(q *Query) (rsp *QueryRsp, err error) {
 	if err != nil {
 		return rsp, err
 	}
-	req := newSetting(Unified, c)
+	req := newSetting(paymentQuery, c)
 	err = req.doPostReq(mp, rsp)
 	if err != nil {
 		return rsp, err

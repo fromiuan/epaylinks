@@ -17,9 +17,11 @@ var (
 	proHost = "https://efps.epaylinks.cn"
 
 	// 统一下单
-	Unified = "/api/txs/pay/UnifiedPayment"
+	unified = "/api/txs/pay/UnifiedPayment"
 	// 支付结果查询接口
-	PaymentQuery = "/api/txs/pay/PaymentQuery"
+	paymentQuery = "/api/txs/pay/PaymentQuery"
+	// 微信 APP 支付接口
+	appWxPayMent = "/api/txs/pay/appWxPayMent"
 )
 
 type OrderInfo struct {

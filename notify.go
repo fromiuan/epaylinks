@@ -24,7 +24,9 @@ type NotifyRsp struct {
 	ReturnMsg  string `json:"returnMsg"`
 }
 
-// 通知验证
+// 异步通知验证
+// sign 签名
+// body 验签的数据
 func (c *Client) Notify(sign, body string) (rsp *Notify, err error) {
 	rsp = new(Notify)
 	err = json.Unmarshal([]byte(body), rsp)

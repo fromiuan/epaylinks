@@ -45,7 +45,7 @@ func (c *Client) Payment(u *Unifieder) (rsp *UnifiederRsp, err error) {
 	if err != nil {
 		return rsp, err
 	}
-	req := newSetting(Unified, c)
+	req := newSetting(unified, c)
 	err = req.doPostReq(mp, rsp)
 	if err != nil {
 		return rsp, err
