@@ -32,19 +32,6 @@ func (c *Client) SetDebug(debug bool) {
 	c.debug = debug
 }
 
-func (c *Client) SetPfx(pfx []byte, password string) {
-	c.pfxData = pfx
-	c.password = password
-}
-
-func (c *Client) SetSignNo(signNo string) {
-	c.signNo = signNo
-}
-
-func (c *Client) SetMerchant(merchant string) {
-	c.merchant = merchant
-}
-
 func (c *Client) Setting(cli *Client) {
 	c = cli
 }

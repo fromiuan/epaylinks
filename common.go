@@ -20,8 +20,10 @@ var (
 	unified = "/api/txs/pay/UnifiedPayment"
 	// 支付结果查询接口
 	paymentQuery = "/api/txs/pay/PaymentQuery"
-	// 微信 APP 支付接口
+	// 微信APP支付接口
 	appWxPayMent = "/api/txs/pay/appWxPayMent"
+	// 微信H5支付接口
+	wxH5Payment = "/api/txs/pay/WxH5Payment"
 )
 
 type OrderInfo struct {

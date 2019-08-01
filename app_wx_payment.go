@@ -41,7 +41,7 @@ type AppPayInfo struct {
 	TimeStamp string `json:"timeStamp"` // 时间戳
 }
 
-// 统一下单
+// 微信APP支付接口
 func (c *Client) AppWxPayment(awp *AppWxPayment) (rsp *AppWxPaymentRsp, err error) {
 	rsp = new(AppWxPaymentRsp)
 
