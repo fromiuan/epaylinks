@@ -26,6 +26,8 @@ var (
 	wxH5Payment = "/api/txs/pay/WxH5Payment"
 	// 主扫支付接口
 	nativePayment = "/api/txs/pay/NativePayment"
+	// 微信公众号/小程序支付接口
+	wxJSAPIPayment = "/api/txs/pay/WxJSAPIPayment"
 )
 
 type OrderInfo struct {
