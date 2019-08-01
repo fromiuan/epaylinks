@@ -36,6 +36,8 @@ var (
 	quickpayApply = "/api/txs/quickpay/apply"
 	// 提交快捷支付接口
 	quickpayCommit = "/api/txs/quickpay/commit"
+	// 网银支付接口
+	unionPayMent = "/api/txs/pay/unionPayMent"
 )
 
 type OrderInfo struct {
