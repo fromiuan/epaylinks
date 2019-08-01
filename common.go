@@ -38,6 +38,10 @@ var (
 	quickpayCommit = "/api/txs/quickpay/commit"
 	// 网银支付接口
 	unionPayMent = "/api/txs/pay/unionPayMent"
+	// 协议支付绑卡预交易
+	protocolBindCard = "/api/txs/protocol/bindCard"
+	// 协议支付绑卡确认
+	protocolBindCardConfirm = "/api/txs/protocol/bindCardConfirm"
 )
 
 type OrderInfo struct {
