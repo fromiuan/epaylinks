@@ -42,6 +42,8 @@ var (
 	protocolBindCard = "/api/txs/protocol/bindCard"
 	// 协议支付绑卡确认
 	protocolBindCardConfirm = "/api/txs/protocol/bindCardConfirm"
+	// 协议支付预交易
+	protocolPayPre = "/api/txs/protocol/protocolPayPre"
 )
 
 type OrderInfo struct {
