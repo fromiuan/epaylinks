@@ -4,7 +4,7 @@ import (
 	"errors"
 )
 
-type BindCardConfirm struct {
+type ProtocolBindCardConfirm struct {
 	SmsNo        string `json:"smsNo"`        // 绑卡流水号
 	CustomerCode string `json:"customerCode"` // 商户号
 	MemberId     string `json:"memberId"`     // 会员编号
@@ -12,7 +12,7 @@ type BindCardConfirm struct {
 	SmsCode      string `json:"smsCode"`      // 短息验证码
 }
 
-type BindCardConfirmRsp struct {
+type ProtocolBindCardConfirmRsp struct {
 	ReturnCode   string `json:"returnCode"`   // 返回状态码
 	ReturnMsg    string `json:"returnMsg"`    // 返回信息
 	SmsNo        string `json:"smsNo"`        // 绑卡流水号
@@ -22,8 +22,8 @@ type BindCardConfirmRsp struct {
 	NonceStr     string `json:"nonceStr"`     // 随机字符串
 }
 
-func (c *Client) BindCardConfirm(bcc *BindCardConfirm) (rsp *BindCardConfirmRsp, err error) {
-	rsp = new(BindCardConfirmRsp)
+func (c *Client) ProtocolBindCardConfirm(bcc *ProtocolBindCardConfirm) (rsp *ProtocolBindCardConfirmRsp, err error) {
+	rsp = new(ProtocolBindCardConfirmRsp)
 
 	err = bcc.checkParms()
 	if err != nil {
@@ -38,7 +38,7 @@ func (c *Client) BindCardConfirm(bcc *BindCardConfirm) (rsp *BindCardConfirmRsp,
 	return rsp, err
 }
 
-func (bcc *BindCardConfirm) checkParms() error {
+func (bcc *ProtocolBindCardConfirm) checkParms() error {
 	if bcc.SmsNo == "" {
 		return errors.New("绑卡流水号不能为空")
 	}

@@ -46,6 +46,12 @@ var (
 	protocolPayPre = "/api/txs/protocol/protocolPayPre"
 	// 协议支付确认交易
 	protocolPayConfirm = "/api/txs/protocol/protocolPayConfirm"
+	// 协议支付解绑
+	protocolunBindCard = "/api/txs/protocol/unBindCard"
+	// 订单撤销接口
+	payCancel = "/api/txs/pay/Cancel"
+	// 订单撤销接口
+	payClose = "/api/txs/pay/close"
 )
 
 type OrderInfo struct {
