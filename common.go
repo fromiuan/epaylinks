@@ -34,6 +34,8 @@ var (
 	microPayment = "/api/txs/pay/MicroPayment"
 	// 申请快捷支付接口
 	quickpayApply = "/api/txs/quickpay/apply"
+	// 提交快捷支付接口
+	quickpayCommit = "/api/txs/quickpay/commit"
 )
 
 type OrderInfo struct {
