@@ -4,12 +4,11 @@ import (
 	"errors"
 )
 
-type NativePayment struct {
+type MicroPayment struct {
 	OutTradeNo           string     `json:"outTradeNo"`           // 商户订单号
 	CustomerCode         string     `json:"customerCode"`         // 商户号
 	SubCustomerCode      string     `json:"subCustomerCode"`      // 子商户号
 	TerminalCode         string     `json:"terminalCode"`         // 终端代码
-	PayMethod            string     `json:"payMethod"`            // 支付方式 6：微信主扫支付 7：支付宝主扫支付 24：银联二维码主扫支付
 	ClientIp             string     `json:"clientIp"`             // 用户的IP
 	OrderInfo            *OrderInfo `json:"orderInfo"`            // 商品订单信息
 	PayAmount            int64      `json:"payAmount"`            // 支付金额
@@ -23,67 +22,73 @@ type NativePayment struct {
 	NonceStr             string     `json:"nonceStr"`             // 随机字符串
 	NeedSplit            bool       `json:"needSplit"`            // 是否分账
 	RechargeMemCustCode  string     `json:"rechargeMemCustCode"`  // 充值会员客户编码
+	Scene                string     `json:"scene"`                // 场景信息 bar_code：条码支付 wave_code：声波支付
+	AuthCode             string     `json:"authCode"`             // 付款授权码
 }
 
-type NativePaymentRsp struct {
-	ReturnCode string `json:"returnCode"` // 返回状态码
-	ReturnMsg  string `json:"returnMsg"`  // 返回信息
-	CodeUrl    string `json:"codeUrl"`    // 扫码 URL
-	MwebURL    string `json:"mwebURL"`    // 重定向URL
-	OutTradeNo string `json:"outTradeNo"` // 商户订单号
-	Amount     int64  `json:"amount"`     // 支付金额
-	NonceStr   string `json:"nonceStr"`   // 随机字符串
+type MicroPaymentRsp struct {
+	ReturnCode        string `json:"returnCode"`        // 返回状态码
+	ReturnMsg         string `json:"returnMsg"`         // 返回信息
+	OutTradeNo        string `json:"outTradeNo"`        // 商户订单号
+	Amount            int64  `json:"amount"`            // 支付金额
+	NonceStr          string `json:"nonceStr"`          // 随机字符串
+	TransactionNo     string `json:"transactionNo"`     // 易票联订单号 String 否 支付成功时必需
+	ChannelOrder      string `json:"channelOrder"`      // 上游订单号 String 否 支付成功时必需
+	ProcedureFee      int64  `json:"procedureFee"`      // 手续费 Long 否
+	PayState          string `json:"payState"`          // 支付结果 String(2) 是
+	PayTime           string `json:"payTime"`           // 支付完成时间 String(14) 否
+	SettCycle         string `json:"settCycle"`         // 该支付交易所属的清算周期
+	SettCycleInterval int    `json:"settCycleInterval"` //  清算周期长度
 }
 
-// 主扫支付接口
-func (c *Client) NativePayment(np *NativePayment) (rsp *NativePaymentRsp, err error) {
-	rsp = new(NativePaymentRsp)
+// 扫码（被扫）支付接口
+func (c *Client) MicroPayment(mp *MicroPayment) (rsp *MicroPaymentRsp, err error) {
+	rsp = new(MicroPaymentRsp)
 
-	err = np.checkParms()
+	err = mp.checkParms()
 	if err != nil {
 		return rsp, err
 	}
 
 	req := newSetting(nativePayment, c)
-	err = req.doPostReq(np, rsp)
+	err = req.doPostReq(mp, rsp)
 	if err != nil {
 		return rsp, err
 	}
 	return rsp, err
 }
-
-func (np *NativePayment) checkParms() error {
-	if np.OutTradeNo == "" {
+func (mp *MicroPayment) checkParms() error {
+	if mp.OutTradeNo == "" {
 		return errors.New("商户订单号不能为空")
 	}
-	if np.CustomerCode == "" {
+	if mp.CustomerCode == "" {
 		return errors.New("商户号不能为空")
 	}
-	if np.ClientIp == "" {
+	if mp.ClientIp == "" {
 		return errors.New("用户终端IP不能为空")
 	}
-	if np.PayMethod != "6" && np.PayMethod != "7" && np.PayMethod != "24" {
-		return errors.New("请选择扫描类型")
+	if mp.AuthCode == "" {
+		return errors.New("请填写付款授权码")
 	}
-	if np.OrderInfo == nil {
+	if mp.OrderInfo == nil {
 		return errors.New("商品订单信息不能为空")
 	}
-	if np.PayAmount <= 0 {
+	if mp.PayAmount <= 0 {
 		return errors.New("支付金额小于等于0")
 	}
-	if np.PayCurrency == "" {
+	if mp.PayCurrency == "" {
 		return errors.New("支付币种不能为空")
 	}
-	if np.ChannelType != "01" && np.ChannelType != "02" {
+	if mp.ChannelType != "01" && mp.ChannelType != "02" {
 		return errors.New("渠道类型必须为空01或者02")
 	}
-	if np.NotifyUrl == "" {
+	if mp.NotifyUrl == "" {
 		return errors.New("支付结果通知地址为空")
 	}
-	if np.NonceStr == "" {
+	if mp.NonceStr == "" {
 		return errors.New("随机字符串不能为空")
 	}
-	if np.TransactionStartTime == "" {
+	if mp.TransactionStartTime == "" {
 		return errors.New("交易开始时间必填")
 	}
 	return nil

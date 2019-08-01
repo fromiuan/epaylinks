@@ -30,6 +30,8 @@ var (
 	wxJSAPIPayment = "/api/txs/pay/WxJSAPIPayment"
 	// 支付宝服务窗支付接口
 	aliJSAPIPayment = "/api/txs/pay/AliJSAPIPayment"
+	// 扫码（被扫）支付接口
+	microPayment = "/api/txs/pay/MicroPayment"
 )
 
 type OrderInfo struct {
