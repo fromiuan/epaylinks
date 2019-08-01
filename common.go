@@ -28,6 +28,8 @@ var (
 	nativePayment = "/api/txs/pay/NativePayment"
 	// 微信公众号/小程序支付接口
 	wxJSAPIPayment = "/api/txs/pay/WxJSAPIPayment"
+	// 支付宝服务窗支付接口
+	aliJSAPIPayment = "/api/txs/pay/AliJSAPIPayment"
 )
 
 type OrderInfo struct {
