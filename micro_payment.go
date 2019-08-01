@@ -50,7 +50,7 @@ func (c *Client) MicroPayment(mp *MicroPayment) (rsp *MicroPaymentRsp, err error
 		return rsp, err
 	}
 
-	req := newSetting(nativePayment, c)
+	req := newSetting(microPayment, c)
 	err = req.doPostReq(mp, rsp)
 	if err != nil {
 		return rsp, err

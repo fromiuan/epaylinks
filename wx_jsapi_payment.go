@@ -52,7 +52,7 @@ func (c *Client) WxJSAPIPayment(wjsapip *WxJSAPIPayment) (rsp *WxJSAPIPaymentRsp
 		return rsp, err
 	}
 
-	req := newSetting(wxH5Payment, c)
+	req := newSetting(wxJSAPIPayment, c)
 	err = req.doPostReq(wjsapip, rsp)
 	if err != nil {
 		return rsp, err

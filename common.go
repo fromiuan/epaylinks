@@ -32,6 +32,8 @@ var (
 	aliJSAPIPayment = "/api/txs/pay/AliJSAPIPayment"
 	// 扫码（被扫）支付接口
 	microPayment = "/api/txs/pay/MicroPayment"
+	// 申请快捷支付接口
+	quickpayApply = "/api/txs/quickpay/apply"
 )
 
 type OrderInfo struct {
