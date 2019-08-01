@@ -40,13 +40,8 @@ func (c *Client) Payment(u *Unifieder) (rsp *UnifiederRsp, err error) {
 		return rsp, err
 	}
 
-	// struct to map
-	mp, err := ToMap(u)
-	if err != nil {
-		return rsp, err
-	}
 	req := newSetting(unified, c)
-	err = req.doPostReq(mp, rsp)
+	err = req.doPostReq(u, rsp)
 	if err != nil {
 		return rsp, err
 	}

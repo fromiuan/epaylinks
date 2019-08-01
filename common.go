@@ -24,6 +24,8 @@ var (
 	appWxPayMent = "/api/txs/pay/appWxPayMent"
 	// 微信H5支付接口
 	wxH5Payment = "/api/txs/pay/WxH5Payment"
+	// 主扫支付接口
+	nativePayment = "/api/txs/pay/NativePayment"
 )
 
 type OrderInfo struct {
@@ -57,7 +59,7 @@ func newSetting(reqUrl string, c *Client) *setting {
 	}
 }
 
-func (rs *setting) doPostReq(params map[string]interface{}, rsp interface{}) error {
+func (rs *setting) doPostReq(params interface{}, rsp interface{}) error {
 	req := lib.Post(rs.reqUrl)
 	paramsBytes, err := json.Marshal(params)
 	if err != nil {
