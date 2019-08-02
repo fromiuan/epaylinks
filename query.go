@@ -37,13 +37,8 @@ func (c *Client) Query(q *Query) (rsp *QueryRsp, err error) {
 		return rsp, err
 	}
 
-	// struct to map
-	mp, err := ToMap(q)
-	if err != nil {
-		return rsp, err
-	}
 	req := newSetting(paymentQuery, c)
-	err = req.doPostReq(mp, rsp)
+	err = req.doPostReq(q, rsp)
 	if err != nil {
 		return rsp, err
 	}

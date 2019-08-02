@@ -128,7 +128,7 @@ func (rs *setting) sort(params map[string]interface{}) {
 	}
 }
 
-func ToMap(data interface{}) (map[string]interface{}, error) {
+func oMap(data interface{}) (map[string]interface{}, error) {
 	var mp map[string]interface{}
 	byts, err := json.Marshal(data)
 	if err != nil {

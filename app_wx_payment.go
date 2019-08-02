@@ -50,13 +50,8 @@ func (c *Client) AppWxPayment(awp *AppWxPayment) (rsp *AppWxPaymentRsp, err erro
 		return rsp, err
 	}
 
-	// struct to map
-	mp, err := ToMap(awp)
-	if err != nil {
-		return rsp, err
-	}
 	req := newSetting(appWxPayMent, c)
-	err = req.doPostReq(mp, rsp)
+	err = req.doPostReq(awp, rsp)
 	if err != nil {
 		return rsp, err
 	}

@@ -47,13 +47,8 @@ func (c *Client) H5WxPayment(hwp *H5WxPayment) (rsp *H5WxPaymentRsp, err error) 
 		return rsp, err
 	}
 
-	// struct to map
-	mp, err := ToMap(hwp)
-	if err != nil {
-		return rsp, err
-	}
 	req := newSetting(wxH5Payment, c)
-	err = req.doPostReq(mp, rsp)
+	err = req.doPostReq(hwp, rsp)
 	if err != nil {
 		return rsp, err
 	}
