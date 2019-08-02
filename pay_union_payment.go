@@ -32,7 +32,7 @@ type UnionPayMentRsp struct {
 	RespMsg    string `json:"respMsg"`    // 应答信息
 }
 
-// 申请快捷支付接口
+// 网银支付接口
 func (c *Client) UnionPayMent(upm *UnionPayMent) (rsp *UnionPayMentRsp, err error) {
 	rsp = new(UnionPayMentRsp)
 

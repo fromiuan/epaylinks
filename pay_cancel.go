@@ -21,7 +21,7 @@ type PayCancelRsp struct {
 	NonceStr      string `json:"nonceStr"`      // 随机字符串
 }
 
-// 申请快捷支付接口
+// 订单撤销接口
 func (c *Client) PayCancel(pubc *PayCancel) (rsp *PayCancelRsp, err error) {
 	rsp = new(PayCancelRsp)
 
@@ -30,7 +30,7 @@ func (c *Client) PayCancel(pubc *PayCancel) (rsp *PayCancelRsp, err error) {
 		return rsp, err
 	}
 
-	req := newSetting(protocolunBindCard, c)
+	req := newSetting(payCancel, c)
 	err = req.doPostReq(pubc, rsp)
 	if err != nil {
 		return rsp, err

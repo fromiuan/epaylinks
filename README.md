@@ -1,5 +1,27 @@
 # Epaylinks
- epaylinks适用于易票联efps商户接入的sdk
+ epaylinks适用于易票联efps商户接入的sdk,暂未实现分账功能api
+
+## Complete
+
+- 统一下单接口(Payment)
+- 支付结果异步通知接口(Notify)
+- 支付结果查询接口(Query)
+- 微信APP支付接口(AppWxPayment)
+- 微信H5支付接口(H5WxPayment)
+- 主扫支付接口(NativePayment)
+- 微信公众号/小程序支付接口(WxJSAPIPayment)
+- 支付宝服务窗支付接口(AliJSAPIPayment)
+- 扫码（被扫）支付接口(MicroPayment)
+- 申请快捷支付接口(QuickpayApply)
+- 提交快捷支付接口(QuickpayCommit)
+- 网银支付接口(UnionPayMent)
+- 协议支付绑卡预交易(ProtocolBindCard)
+- 协议支付绑卡确认(ProtocolBindCardConfirm)
+- 协议支付预交易(ProtocolPayPre)
+- 协议支付确认交易(ProtocolPayConfirm)
+- 协议支付解绑(ProtocolUnBindCard)
+- 订单撤销接口(PayCancel)
+- 关单接口(PayClose)
 
 ## Install
 

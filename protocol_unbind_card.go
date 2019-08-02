@@ -19,7 +19,7 @@ type ProtocolUnBindCardRsp struct {
 	NonceStr     string `json:"nonceStr"`     // 随机字符串
 }
 
-// 申请快捷支付接口
+// 协议支付解绑
 func (c *Client) ProtocolUnBindCard(pubc *ProtocolUnBindCard) (rsp *ProtocolUnBindCardRsp, err error) {
 	rsp = new(ProtocolUnBindCardRsp)
 

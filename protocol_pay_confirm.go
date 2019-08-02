@@ -29,6 +29,7 @@ type ProtocolPayConfirmRsp struct {
 	settCycleInterval int    `json:"settCycleInterval"` // 清算周期长度
 }
 
+// 协议支付确认交易
 func (c *Client) ProtocolPayConfirm(ppc *ProtocolPayConfirm) (rsp *ProtocolPayConfirmRsp, err error) {
 	rsp = new(ProtocolPayConfirmRsp)
 

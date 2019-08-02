@@ -28,6 +28,7 @@ type ProtocolBindCardRsp struct {
 	NonceStr     string `json:"nonceStr"`     // 随机字符串
 }
 
+// 协议支付绑卡预交易
 func (c *Client) ProtocolBindCard(pbc *ProtocolBindCard) (rsp *ProtocolBindCardRsp, err error) {
 	rsp = new(ProtocolBindCardRsp)
 

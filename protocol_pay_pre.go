@@ -31,7 +31,7 @@ type ProtocolPayPreRsp struct {
 	NonceStr     string `json:"nonceStr"`     // 随机字符串
 }
 
-// 申请快捷支付接口
+// 协议支付预交易
 func (c *Client) ProtocolPayPre(upm *ProtocolPayPre) (rsp *ProtocolPayPreRsp, err error) {
 	rsp = new(ProtocolPayPreRsp)
 
