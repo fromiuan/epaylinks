@@ -28,8 +28,7 @@ func (c *Client) ProtocolUnBindCard(pubc *ProtocolUnBindCard) (rsp *ProtocolUnBi
 		return rsp, err
 	}
 
-	req := newSetting(protocolunBindCard, c)
-	err = req.doPostReq(pubc, rsp)
+	err = c.doPostReq(protocolunBindCard, pubc, rsp)
 	if err != nil {
 		return rsp, err
 	}

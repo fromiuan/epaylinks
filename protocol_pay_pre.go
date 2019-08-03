@@ -40,8 +40,7 @@ func (c *Client) ProtocolPayPre(upm *ProtocolPayPre) (rsp *ProtocolPayPreRsp, er
 		return rsp, err
 	}
 
-	req := newSetting(protocolPayPre, c)
-	err = req.doPostReq(upm, rsp)
+	err = c.doPostReq(protocolPayPre, upm, rsp)
 	if err != nil {
 		return rsp, err
 	}

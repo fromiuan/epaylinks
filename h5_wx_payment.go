@@ -47,8 +47,7 @@ func (c *Client) H5WxPayment(hwp *H5WxPayment) (rsp *H5WxPaymentRsp, err error) 
 		return rsp, err
 	}
 
-	req := newSetting(wxH5Payment, c)
-	err = req.doPostReq(hwp, rsp)
+	err = c.doPostReq(wxH5Payment, hwp, rsp)
 	if err != nil {
 		return rsp, err
 	}

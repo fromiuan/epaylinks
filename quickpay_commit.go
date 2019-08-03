@@ -34,8 +34,7 @@ func (c *Client) QuickpayCommit(qc *QuickpayCommit) (rsp *QuickpayCommitRsp, err
 		return rsp, err
 	}
 
-	req := newSetting(quickpayCommit, c)
-	err = req.doPostReq(qc, rsp)
+	err = c.doPostReq(quickpayCommit, qc, rsp)
 	if err != nil {
 		return rsp, err
 	}

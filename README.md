@@ -3,6 +3,8 @@
 
 ## Complete
 
+### espf
+
 - 统一下单接口(Payment)
 - 支付结果异步通知接口(Notify)
 - 支付结果查询接口(Query)
@@ -22,6 +24,11 @@
 - 协议支付解绑(ProtocolUnBindCard)
 - 订单撤销接口(PayCancel)
 - 关单接口(PayClose)
+
+### 支付网关
+
+- 支付接口(paycenter/Payment)
+- 订单查询接口(paycenter/Query)
 
 ## Install
 

@@ -41,8 +41,7 @@ func (c *Client) AliJSAPIPayment(ajsapip *AliJSAPIPayment) (rsp *AliJSAPIPayment
 		return rsp, err
 	}
 
-	req := newSetting(aliJSAPIPayment, c)
-	err = req.doPostReq(ajsapip, rsp)
+	err = c.doPostReq(aliJSAPIPayment, ajsapip, rsp)
 	if err != nil {
 		return rsp, err
 	}

@@ -30,8 +30,7 @@ func (c *Client) PayClose(pc *PayClose) (rsp *PayCloseRsp, err error) {
 		return rsp, err
 	}
 
-	req := newSetting(payClose, c)
-	err = req.doPostReq(pc, rsp)
+	err = c.doPostReq(payClose, pc, rsp)
 	if err != nil {
 		return rsp, err
 	}

@@ -44,8 +44,7 @@ func (c *Client) NativePayment(np *NativePayment) (rsp *NativePaymentRsp, err er
 		return rsp, err
 	}
 
-	req := newSetting(nativePayment, c)
-	err = req.doPostReq(np, rsp)
+	err = c.doPostReq(nativePayment, np, rsp)
 	if err != nil {
 		return rsp, err
 	}

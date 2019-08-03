@@ -42,8 +42,7 @@ func (c *Client) QuickpayApply(qa *QuickpayApply) (rsp *QuickpayApplyRsp, err er
 		return rsp, err
 	}
 
-	req := newSetting(quickpayApply, c)
-	err = req.doPostReq(qa, rsp)
+	err = c.doPostReq(quickpayApply, qa, rsp)
 	if err != nil {
 		return rsp, err
 	}

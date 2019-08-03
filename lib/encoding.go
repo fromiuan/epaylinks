@@ -62,6 +62,15 @@ func (e *Encoding) Verify(sign, body string) error {
 	return err
 }
 
+// get certificate
+func (e *Encoding) GetCertificate() string {
+	_, certificate, err := e.decode()
+	if err != nil {
+		return ""
+	}
+	return certificate.SerialNumber.String()
+}
+
 // decode pfx(if array for key return first one)
 func (e *Encoding) decode() (privateKey *rsa.PrivateKey, certificate *x509.Certificate, err error) {
 	var private interface{}
@@ -102,7 +111,6 @@ func (e *Encoding) Pem() (privateKey *rsa.PrivateKey, err error) {
 	return nil, fmt.Errorf("parse pem error")
 }
 
-//
 func (e *Encoding) SignPKCS1v15(src, key []byte, hash crypto.Hash) ([]byte, error) {
 	hashed := sha256.Sum256(src)
 

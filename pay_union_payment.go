@@ -41,8 +41,7 @@ func (c *Client) UnionPayMent(upm *UnionPayMent) (rsp *UnionPayMentRsp, err erro
 		return rsp, err
 	}
 
-	req := newSetting(unionPayMent, c)
-	err = req.doPostReq(upm, rsp)
+	err = c.doPostReq(unionPayMent, upm, rsp)
 	if err != nil {
 		return rsp, err
 	}

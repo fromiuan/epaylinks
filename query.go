@@ -37,8 +37,7 @@ func (c *Client) Query(q *Query) (rsp *QueryRsp, err error) {
 		return rsp, err
 	}
 
-	req := newSetting(paymentQuery, c)
-	err = req.doPostReq(q, rsp)
+	err = c.doPostReq(paymentQuery, q, rsp)
 	if err != nil {
 		return rsp, err
 	}

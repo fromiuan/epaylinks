@@ -50,8 +50,7 @@ func (c *Client) AppWxPayment(awp *AppWxPayment) (rsp *AppWxPaymentRsp, err erro
 		return rsp, err
 	}
 
-	req := newSetting(appWxPayMent, c)
-	err = req.doPostReq(awp, rsp)
+	err = c.doPostReq(appWxPayMent, awp, rsp)
 	if err != nil {
 		return rsp, err
 	}

@@ -38,8 +38,7 @@ func (c *Client) ProtocolPayConfirm(ppc *ProtocolPayConfirm) (rsp *ProtocolPayCo
 		return rsp, err
 	}
 
-	req := newSetting(protocolPayConfirm, c)
-	err = req.doPostReq(ppc, rsp)
+	err = c.doPostReq(protocolPayConfirm, ppc, rsp)
 	if err != nil {
 		return rsp, err
 	}

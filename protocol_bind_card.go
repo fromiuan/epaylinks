@@ -37,8 +37,7 @@ func (c *Client) ProtocolBindCard(pbc *ProtocolBindCard) (rsp *ProtocolBindCardR
 		return rsp, err
 	}
 
-	req := newSetting(protocolBindCard, c)
-	err = req.doPostReq(pbc, rsp)
+	err = c.doPostReq(protocolBindCard, pbc, rsp)
 	if err != nil {
 		return rsp, err
 	}
