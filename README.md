@@ -1,5 +1,6 @@
 # Epaylinks
- epaylinks适用于易票联efps商户接入的sdk,暂未实现分账功能api
+ epaylinks适用于易票联efps商户接入的sdk以及支付网关,efps暂未实现分账功能api
+ 易票联支付网关(网页支付)接口可见[paycenter](https://github.com/fromiuan/epaylinks/tree/master/paycenter)
 
 ## Complete
 
@@ -29,6 +30,11 @@
 
 - 支付接口(paycenter/Payment)
 - 订单查询接口(paycenter/Query)
+
+## 接口文档材料参考
+	
+- 易票联支付网关(网页支付)标准接口规范
+- EFPS商户接入文档
 
 ## Install
 
